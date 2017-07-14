@@ -1,16 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Maxim
-  Date: 14.07.2017
-  Time: 15:13
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<p>Hello,{username}!</p>
+<c:if test="${pageContext.request.userPrincipal.name != null}">
+    <p>Hello, ${pageContext.request.userPrincipal.name}!</p>
+    <a href="<c:url value='/j_spring_security_logout'/>">Logout</a>
+</c:if>
 </body>
 </html>

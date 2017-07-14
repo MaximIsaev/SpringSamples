@@ -8,14 +8,18 @@
        http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http auto-config="true" use-expressions="false">
-        <intercept-url pattern="/" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/admin" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/" access="ROLE_USER"/>
     </http>
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="max" authorities="ROLE_ADMIN" password="12345"/>
+                <user name="max" authorities="ROLE_USER" password="12345"/>
+                <user name="admin" authorities="ROLE_ADMIN" password="admin"/>
             </user-service>
         </authentication-provider>
     </authentication-manager>
+
+    <csrf disabled="true"/>
 </beans:beans>
