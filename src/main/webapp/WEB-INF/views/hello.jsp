@@ -8,7 +8,7 @@
 <body>
 <c:if test="${pageContext.request.userPrincipal.name != null}">
     <p>Hello, ${pageContext.request.userPrincipal.name}!</p>
-    <a href="<c:url value='/j_spring_security_logout'/>">Logout</a>
+    <a href="<c:url value='/logout'/>">Logout</a>
 </c:if>
 </body>
 </html>
